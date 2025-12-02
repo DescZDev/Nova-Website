@@ -185,3 +185,7 @@ window.addEventListener('beforeunload', function() {
         window.removeEventListener('scroll', handleParallax);
     }
 });
+
+window.addEventListener("load", () => {
+    document.getElementById("loader").classList.add("hide");
+});
