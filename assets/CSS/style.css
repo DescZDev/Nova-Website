@@ -12,13 +12,6 @@
   overflow: hidden;
 }
 
-.bg-image {
-  width: 300%;
-  height: 100%;
-  background: url('assets/img/indexDD.png') repeat-x;
-  background-size: auto 100%;
-}
-
 header, footer {
   padding: 15px;
   background: transparent;
@@ -65,7 +58,7 @@ h2 {
   color: white;
   text-decoration: none;
   border-radius: 8px;
-  transition: background 0.3s ease;
+  transition: moveBg 0.3s ease;
 }
 
 .btn:hover {
@@ -76,12 +69,6 @@ footer {
   text-align: center;
   padding: 0;
   color: white;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
 }
 
 .download-section {
@@ -103,11 +90,8 @@ html, body {
 
 body {
     margin: 0;
-    overflow-x: auto;
     padding: 0;
-    background-size: cover;
     font-family: Arial, sans-serif;
-    background-image: url('assets/img/indexDD.png');
     background-repeat: repeat-x;
     text-align: center;
     color: white;
@@ -161,7 +145,7 @@ a {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   transform: scale(0);
-  animation: ripple 0.6s linear;
+  animation: ripple 0.6s linear infinite;
   pointer-events: none;
 }
 
@@ -185,27 +169,46 @@ a {
 #sidebar-overlay.active {
   display: block;
   opacity: 1;
+  animation: ease;
 }
 
 /* Sidebar styles */
-#sidebar {
-  position: fixed;
+#sidebar { 
   top: 0;
   left: -300px;
   width: 250px;
   height: 100vh;
-  background: #181818;
+  background: linear-gradient(135deg, #ff0040, #3600ff, #00d0ff);
   box-shadow: 2px 0 12px rgba(0,0,0,0.3);
+  animation: gradientMove 8s infinite linear;
+  background-size: 400% 400%;
   padding: 30px 20px 20px 20px;
   z-index: 1000;
-  transition: left 0.4s cubic-bezier(.77,0,.18,1);
+  transition: left 0.5s cubic-bezier(.77,0,.18,1);
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
 #sidebar.active {
   left: 0;
+}
+
+.item {
+  transform: translateX(-30px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+#sidebar.active .item {
+  transform: translateX(30px);
+  opacity: 1;
 }
 
 #sidebar button#close-sidebar {
@@ -235,7 +238,7 @@ a {
   text-decoration: none;
   padding: 10px 0;
   border-radius: 4px;
-  transition: all 0.2s;
+  transition: opacity 0.2s ease;
 }
 
 #sidebar a:hover {
@@ -267,7 +270,7 @@ a {
   border: 6px solid #444;
   border-top-color: #fff;
   border-radius: 50%;
-  animation: spin 0.6s linear alternate; 
+  animation: spin 0.6s linear infinite; 
   image-rendering: pixelated;
 }
 
@@ -276,3 +279,29 @@ a {
     transform: rotate(360deg);
   }
 }
+
+.neon {
+  color: #fff;
+  text-shadow: 
+    0 0 5px #6d2727,
+    0 0 10px #a31e1e,
+    0 0 20px #ff0000,
+    0 0 40px #ff0000;
+    animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 5px #ff0000,
+      0 0 10px #ff0000,
+      0 0 20px #ff0000,
+      0 0 40px #ff0000;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+.reveal { opacity: 0; transform: translateY(40px); transition: .5s; }
+.reveal.show { opacity: 1; transform: translateY(0); }

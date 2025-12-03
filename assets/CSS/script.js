@@ -132,7 +132,6 @@ function setupSidebarEnhancements() {
     function openSidebar() {
         sidebar.classList.add('active');
         overlay.classList.add('active');
-        // Optionally, prevent body scroll
         document.body.style.overflow = 'hidden';
     }
     function closeSidebar() {
@@ -145,7 +144,6 @@ function setupSidebarEnhancements() {
     closeBtn.addEventListener('click', closeSidebar);
     overlay.addEventListener('click', closeSidebar);
 
-    // Optional: close sidebar on ESC key
     document.addEventListener('keydown', function(e) {
         if (e.key === "Escape" && sidebar.classList.contains('active')) {
             closeSidebar();
@@ -188,4 +186,15 @@ window.addEventListener('beforeunload', function() {
 
 window.addEventListener("load", () => {
     document.getElementById("loader").classList.add("hide");
+});
+
+
+const elements = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', () => {
+    elements.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add('show');
+        }
+    });
 });
