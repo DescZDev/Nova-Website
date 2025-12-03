@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOVA WEBSITE</title>
+    <title>NOVA Website</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Bungee.css">
     <link rel="stylesheet" href="assets/CSS/style.css">
-    <link rel="icon" type="image/x-icon" href="assets\img\Nova.ico"></link>
+    <link rel="icon" type="image/x-icon" href="assets\icons\Nova.ico"></link>
     <div id="loader">
         <div class="spinner"></div>
     </div>
@@ -17,7 +17,8 @@
             font-size: 20px;
             color: white;
             text-align: center;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+            transition: all 0.4s ease-in-out;
+            text-shadow: 0 0 10px #272222, 0 0 20px #ff0000, 0 0 30px #ff0000;
         }
 
         body {
@@ -27,7 +28,7 @@
         }
 
         footer {
-            padding: 50px 30px;
+            padding: 6px 10px;
             text-align: center;
         }
 
@@ -38,43 +39,12 @@
             letter-spacing: 1px;
         }
 
-        footer p {
-            margin: 10px 0;
-            color: #ccc;
-        }
-
         .credits a {
             display: block;
             color: #3f74ff;
             text-decoration: none;
             margin: 5px 0;
             font-weight: bold;
-        }
-
-        .credits a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-contact a {
-            color: #ccc;
-            text-decoration: none;
-            border-bottom: 1px dotted #ccc;
-            background-color: transparent;
-        }
-
-        .footer-contact a:hover {
-            color: #ccc;
-            border-bottom: 1px solid #fff;
-        }
-
-        .footer-bottom {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #888;
-        }
-
-        .footer-bottom b {
-            color: #fff;
         }
 
         .downloads-section {
@@ -144,7 +114,7 @@
             left: 0;
             right: 0;
             height: 50px;
-            background: #222;
+            background: rgba(77, 8, 8, 0.315);
             color: white;
             display: flex;
             align-items: center;
@@ -165,10 +135,18 @@
             top: 50px;
             width: 250px;
             height: calc(100% - 50px);
-            background: black;
+            background: linear-gradient(280deg, #363636, #141318, #24454d);
+            animation: gradientMove 10s infinite linear;
+            background-size: 400% 400%;
             transition: left 0.4s cubic-bezier(.77,0,.18,1);
             padding: 15px;
             z-index: 1000;
+        }
+
+        @keyframes gradientMove {
+                0% {background-position: 0% 50%;}
+                50% {background-position: 100% 50%;}
+                100% {background-position: 0% 50%;}
         }
 
         #sidebar.active {
@@ -205,7 +183,7 @@
         }
     </style>
 </head>
-<body style="font-family: Arial, sans-serif; background: url('assets/img/indexDD.png') center repeat; background-size: cover;">
+<body style="font-family: Arial, sans-serif; background: url('assets/img/FMgnigJXIAcg1wa.jpg') center repeat; background-attachment: fixed; background-size: cover;">
 
     <!-- Animated background -->
     <div class="bg-container">
@@ -225,13 +203,14 @@
         <a href="https://discord.gg/2JCW7NXJsy" target="_blank" rel="noopener">Discord server</a>
         <a href="https://www.youtube.com/@DesscZ" target="_blank" rel="noopener">YouTube channel</a>
         <a href="https://discord.gg/2JCW7NXJsy" target="_blank" rel="noopener">Contact</a>
+        <a href="https://github.com/DescZDev" target="_self" rel="noopener">Github</a>
     </nav>
 
     <!-- Header -->
     <header>
         <div class="content">
             <h1>
-                <span style="color: #0f1b3a;">NOVA WEBSITE</span>
+                <span class="neon">Nova Website</span>
             </h1>
             <p>Best & Powerful Minecraft Mods and Backups!</p>
         </div>
@@ -242,8 +221,8 @@
         <section class="download-section">
             <div class="button-container">
                 <h2>Downloads</h2>
-                <a class="glowing-button btn-1" href="download-section.html">Nexus Backup Download</a>
-                <a class="glowing-button btn-4" href="customBackupSection.html">Download Custom Minecraft Backups</a>
+                <a class="glowing-button btn-1" href="download-section.html">Nexus Backup pkg</a>
+                <a class="glowing-button btn-4" href="customBackupSection.html">Download More backups</a>
                 <a class="glowing-button btn-2" href="https://github.com/DescZDev/ARC_Studio_Remake" target="_blank" rel="noopener">ARC Studio Remake</a>
                 <a class="glowing-button btn-4" href="tool-section.html">Minecraft Ultimate Tool</a>
             </div>
@@ -252,7 +231,6 @@
 
     <!-- Footer -->
     <footer>
-        <h5>(beta <span style="color: #be1818;">Website</span>)</h5>
         <p>Welcome to <b style="color: white;">Nova <span style="color: gray;">Website!</span></b></p>
         <h4>By</h4>
         
